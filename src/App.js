@@ -13,12 +13,16 @@ class App extends Component {
 
   //this binded implicit
   inc = () => {
-    this.props.dispatch(incrementCounter())
+    //this.props.dispatch(incrementCounter())
+    this.props.inc()
   }
 
   //need this to be bind
   dec() {
-    this.props.dispatch(decrementCounter())
+    // before mapDispatchToProps
+    // this.props.dispatch(decrementCounter())
+    // after
+    this.props.decrementCounter()
   }
 
   render() {
@@ -38,5 +42,9 @@ const mapStateToProps = (state) => ({
   counter: state.counter
 })
 
-export default connect(mapStateToProps)(App);
+// if we not specify that paramter in connect 
+// we will get a dispatch method as props
+const mapDispatchToProps = { /*func new name ->*/ inc : incrementCounter, decrementCounter }
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 
