@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { incrementCounter, decrementCounter } from './Actions';
+import { decrementCounter, incrementDelay } from './Actions';
 
 class App extends Component {
 
@@ -44,7 +44,7 @@ const mapStateToProps = (state) => ({
 
 // if we not specify that paramter in connect 
 // we will get a dispatch method as props
-const mapDispatchToProps = { /*func new name ->*/ inc : incrementCounter, decrementCounter }
+const mapDispatchToProps = { /*func new name ->*/ inc : incrementDelay, decrementCounter }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 
